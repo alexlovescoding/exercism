@@ -1,18 +1,20 @@
+// Package clock documents general stuff about the package here
 package clock
 
 import "fmt"
 
-// The value of testVersion here must match `targetTestVersion` in the file
-// clock_test.go.
-
 const (
-	testVersion    = 3
-	minutesPerDay  = 1440
+	// testVersion here must match `targetTestVersion` in the file clock_test.go.
+	testVersion = 3
+	// minutesPerDay is used to convert between minutes and hours
+	minutesPerDay = 1440
+	// minutesPerHour is used to convert between minutes and hours
 	minutesPerHour = 60
 )
 
 type Clock int
 
+// New creates a new value of type Clock using the hour and minutes parameters
 func New(hour, minutes int) Clock {
 	var m int = (hour*minutesPerHour + minutes) % minutesPerDay
 	if m < 0 {
@@ -21,10 +23,12 @@ func New(hour, minutes int) Clock {
 	return Clock(m)
 }
 
+// String function formats the Clock object in a readable manner
 func (m Clock) String() string {
 	return fmt.Sprintf("%02d:%02d", m/minutesPerHour, m%minutesPerHour)
 }
 
+// Add function adds the given number of minutes to the Clock
 func (m Clock) Add(minutes int) Clock {
 	m = (m + Clock(minutes)) % minutesPerDay
 	if m < 0 {
