@@ -12,20 +12,20 @@ type Clock int
 
 // New creates a new value of type Clock.
 func New(hour, minutes int) Clock {
-	m := (hour*minutesPerHour + minutes) % minutesPerDay
-	if m < 0 {
-		m += minutesPerDay
+	minutes = (hour*minutesPerHour + minutes) % minutesPerDay
+	if minutes < 0 {
+		minutes += minutesPerDay
 	}
-	return Clock(m)
+	return Clock(minutes)
 }
 
 // String function formats the Clock object in a readable manner.
-func (m Clock) String() string {
-	return fmt.Sprintf("%02d:%02d", m/minutesPerHour, m%minutesPerHour)
+func (c Clock) String() string {
+	return fmt.Sprintf("%02d:%02d", c/minutesPerHour, c%minutesPerHour)
 }
 
 // Add function adds the given number of minutes to the Clock.
-func (m Clock) Add(minutes int) Clock {
-	minutes = int(m) + minutes
+func (c Clock) Add(minutes int) Clock {
+	minutes = int(c) + minutes
 	return New(0, minutes)
 }
