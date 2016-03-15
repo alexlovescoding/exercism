@@ -1,9 +1,6 @@
 package raindrops
 
-import (
-	"bytes"
-	"strconv"
-)
+import "strconv"
 
 const testVersion = 2
 
@@ -12,16 +9,16 @@ func Convert(num int) string {
 		return strconv.Itoa(num)
 	}
 
-	var sb bytes.Buffer
+	result := ""
 
 	if num%3 == 0 {
-		sb.WriteString("Pling")
+		result += "Pling"
 	}
 	if num%5 == 0 {
-		sb.WriteString("Plang")
+		result += "Plang"
 	}
 	if num%7 == 0 {
-		sb.WriteString("Plong")
+		result += "Plong"
 	}
-	return sb.String()
+	return result
 }
