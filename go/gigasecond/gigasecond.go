@@ -8,5 +8,5 @@ const testVersion = 4
 
 // AddGigasecond adds a gigasecond (10**9 seconds) to the given time.
 func AddGigasecond(t time.Time) time.Time {
-	return t.Add(time.Duration(1000000000000000000))
+	return t.Add(1e18)
 }
