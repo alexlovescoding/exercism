@@ -2,8 +2,11 @@ package triangle
 
 const testVersion = 2
 
-// Code this function.
-func KindFromSides(a, b, c float64) Kind
+// Kind tells you whether a triangle with the given sides exists if so,
+// it tells you whether the triangle is equilateral, isosceles, or scalene.
+func KindFromSides(a, b, c float64) Kind {
+
+}
 
 // Notice it returns this type.  Pick something suitable.
 type Kind
@@ -13,5 +16,3 @@ NaT // not a triangle
 Equ // equilateral
 Iso // isosceles
 Sca // scalene
-
-// Organize your code for readability.
