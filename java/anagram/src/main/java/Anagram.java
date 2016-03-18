@@ -4,22 +4,23 @@ import java.util.List;
 
 public class Anagram {
   private String str;
+  private char[] chars;
   public Anagram(String text) {
     str = text.toLowerCase();
+    chars = str.toCharArray();
+    Arrays.sort(chars);
   }
 
   public List<String> match(List<String> list) {
-    List<String> result = new ArrayList();
+    List<String> matches = new ArrayList();
     for (String anagram : list) {
       String tempString = anagram.toLowerCase();
-      char[] wrd1 = str.toCharArray();
-      char[] wrd2 = tempString.toCharArray();
-      Arrays.sort(wrd1);
-      Arrays.sort(wrd2);
-      if(Arrays.equals(wrd1, wrd2) && tempString.compareTo(str) != 0) {
-        result.add(anagram);
+      char[] chars = tempString.toCharArray();
+      Arrays.sort(chars);
+      if(Arrays.equals(this.chars, chars) && tempString.compareTo(str) != 0) {
+        matches.add(anagram);
       }
     }
-    return result;
+    return matches;
   }
 }

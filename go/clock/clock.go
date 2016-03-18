@@ -26,6 +26,5 @@ func (c Clock) String() string {
 
 // Add function adds the given number of minutes to the Clock.
 func (c Clock) Add(minutes int) Clock {
-	minutes = int(c) + minutes
-	return New(0, minutes)
+	return New(0, int(c)+minutes)
 }

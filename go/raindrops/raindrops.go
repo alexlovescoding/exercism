@@ -9,16 +9,16 @@ func Convert(num int) string {
 		return strconv.Itoa(num)
 	}
 
-	result := ""
+	r := ""
 
 	if num%3 == 0 {
-		result += "Pling"
+		r += "Pling"
 	}
 	if num%5 == 0 {
-		result += "Plang"
+		r += "Plang"
 	}
 	if num%7 == 0 {
-		result += "Plong"
+		r += "Plong"
 	}
-	return result
+	return r
 }
