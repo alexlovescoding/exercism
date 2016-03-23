@@ -10,7 +10,7 @@
   ((/= (length dna1) (length dna2))
     nil)
   (t (setq count 0)
-    (loop for i from 0 to (length dna1)
+    (loop for i from 0 to (- (length dna1) 1)
         do (if (not (eq (char dna1 i) (char dna2 i)))
           (setq count (+ 1 count))))
     count)
