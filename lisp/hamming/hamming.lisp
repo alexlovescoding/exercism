@@ -1,10 +1,10 @@
-(defpackage #:dna
+(defpackage #:hamming
   (:use #:cl)
-  (:export #:hamming-distance))
-(in-package #:dna)
+  (:export #:distance))
+(in-package #:hamming)
 
 
-(defun hamming-distance (dna1 dna2)
+(defun distance (dna1 dna2)
   "Compute the Hamming distance between two DNA strands"
   (when (= (length dna1) (length dna2))
     (loop for char1 across dna1
