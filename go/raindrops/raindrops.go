@@ -4,21 +4,19 @@ import "strconv"
 
 const testVersion = 2
 
-func Convert(num int) string {
-	if num%3 != 0 && num%5 != 0 && num%7 != 0 {
+func Convert(num int) (r string) {
+	factors := [3]int{3, 5, 7}
+	outputs := [3]string{"Pling", "Plang", "Plong"}
+
+	for i := 0; i < len(factors); i++ {
+		if num%factors[i] == 0 {
+			r += outputs[i]
+		}
+	}
+
+	if len(r) > 0 {
+		return r
+	} else {
 		return strconv.Itoa(num)
 	}
-
-	r := ""
-
-	if num%3 == 0 {
-		r += "Pling"
-	}
-	if num%5 == 0 {
-		r += "Plang"
-	}
-	if num%7 == 0 {
-		r += "Plong"
-	}
-	return r
 }
