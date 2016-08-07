@@ -16,7 +16,7 @@ func Convert(num int) (r string) {
 
 	if len(r) > 0 {
 		return r
-	} else {
-		return strconv.Itoa(num)
 	}
+
+	return strconv.Itoa(num)
 }
