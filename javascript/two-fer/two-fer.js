@@ -1,1 +1,1 @@
-export const twoFer = (name) => `One for ${name ? name : "you"}, one for me.`;
+export const twoFer = (name = 'you') => `One for ${name}, one for me.`;
