@@ -1,5 +1,4 @@
-extern crate chrono;
-use chrono::{Utc, DateTime, Duration};
+use chrono::{DateTime, Duration, Utc};
 use std::ops::Add;
 
 pub fn after(time: DateTime<Utc>) -> DateTime<Utc> {
