@@ -2,3 +2,5 @@
 .gradle/
 .cache/
 .idea/
+.Rproj.user
+.Rhistory
