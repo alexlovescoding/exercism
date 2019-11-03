@@ -7,22 +7,22 @@ defmodule RnaTranscription do
   iex> RnaTranscription.to_rna('ACTG')
   'UGAC'
   """
-  def to_rna_helper([head | tail], rna) do
+  defp to_rna([head | tail], rna) do
     dna_to_rna_map = %{
       ?G => ?C,
       ?C => ?G,
       ?T => ?A,
       ?A => ?U
     }
-    to_rna_helper(tail, rna ++ [dna_to_rna_map[head]])
+    to_rna(tail, [dna_to_rna_map[head] | rna])
   end
 
-  def to_rna_helper([], rna) do
-    rna
+  defp to_rna([], rna) do
+    Enum.reverse(rna)
   end
 
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    to_rna_helper(dna, [])
+    to_rna(dna, [])
   end
 end
