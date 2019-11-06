@@ -6,7 +6,7 @@ defmodule Words do
   """
   @spec count(String.t()) :: map
   def count(sentence) do
-    count(String.split(String.downcase(sentence), ~r/[!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~\s]/), %{})
+    count(String.split(String.downcase(sentence), ~r/[^[:alnum:]-]/u), %{})
   end
 
   @spec count([String.t()], map) :: map
