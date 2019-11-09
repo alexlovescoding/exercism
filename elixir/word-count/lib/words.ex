@@ -6,16 +6,15 @@ defmodule Words do
   """
   @spec count(String.t()) :: map
   def count(sentence) do
-    count(String.split(String.downcase(sentence), ~r/[^[:alnum:]-]/u), %{})
+    sentence = String.downcase(sentence)
+    words = String.split(sentence, ~r/[^[:alnum:]-]/u)
+    words = Enum.filter(words, &(&1 != ""))
+    count(words, %{})
   end
 
   @spec count([String.t()], map) :: map
   defp count([head | tail], countMap) do
-    if head == "" do
-      count(tail, countMap)
-    else
-      count(tail, Map.update(countMap, head, 1, &(&1 + 1)))
-    end
+    count(tail, Map.update(countMap, head, 1, &(&1 + 1)))
   end
 
   @spec count([], map) :: map
