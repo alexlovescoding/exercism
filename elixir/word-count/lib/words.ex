@@ -11,13 +11,10 @@ defmodule Words do
 
   @spec count([String.t()], map) :: map
   defp count([head | tail], countMap) do
-    cond do
-      head == "" ->
-        count(tail, countMap)
-      Map.has_key?(countMap, head) ->
-        count(tail, %{countMap | head => countMap[head] + 1})
-      true ->
-        count(tail, Map.put(countMap, head, 1))
+    if head == "" do
+      count(tail, countMap)
+    else
+      count(tail, Map.update(countMap, head, 1, &(&1 + 1)))
     end
   end
 
